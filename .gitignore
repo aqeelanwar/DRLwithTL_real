@@ -1,0 +1,6 @@
+*.npy
+*.pyc
+*.xml
+*.index
+*.meta
+*.data-00000-of-00001
