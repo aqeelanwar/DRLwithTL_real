@@ -2,6 +2,9 @@
 # Created: 5/16/2019, 3:17 PM
 # Email: aqeel.anwar@gatech.edu
 
+
+# The code uses already vailable tello_py repository which has been modified to fit the needs of this code
+# https://github.com/hanyazou/TelloPy
 import traceback
 from tellopy.tello_drone import tello_drone
 from DeepNet.network.agent import DeepAgent
@@ -27,7 +30,7 @@ print('test')
 # ---------- Initialize necessary variables
 stat_path = 'DeepNet/models/'+cfg.run_name+'/'+cfg.env_type+'/stat.npy'
 network_path_half = 'DeepNet/models/'+cfg.run_name+'/'+cfg.env_type+'/'
-network_path = network_path_half + 'agent_target'
+network_path = network_path_half + '/agent/agent'
 data_path = network_path_half+'data_tuple.npy'
 input_size = 227
 epsilon = 0
@@ -173,7 +176,7 @@ if __name__ == '__main__':
                                                             eps_model='exponential',
                                                             avoid_action=avoid_action)
                             # action = 1
-                            drone.mark_frame(action, num_actions, frame)
+                            # drone.mark_frame(action, num_actions, frame)
                             drone.take_action_3(drone_handle, action)
                             time.sleep(0.8)
                             drone.take_action_3(drone_handle, -1)

@@ -3,7 +3,6 @@
 # Email: aqeel.anwar@gatech.edu
 
 import numpy as np
-import time
 
 def minibatch_double(data_tuple, batch_size, choose, ReplayMemory, input_size, agent, target_agent, Q_clip, gamma):
     # Needs NOT to be in DeepAgent
@@ -65,39 +64,39 @@ def minibatch_double(data_tuple, batch_size, choose, ReplayMemory, input_size, a
     return curr_states, Q_target, actions, err, idx
 
 
-
-def recover(data_tuple, new_state, action, reverse_action, drone, drone_handle ):
-    reward = -1
-    while reward == -1:
-        action_type = 'crash_recover'
-        # Moving forward from crash is crash too
-        data_tuple.append([new_state, 0, new_state, reward, action_type])
-        print('Crashed: Moving ', reverse_action(action_transpose[action]))
-        # drone.move_action(reverse_action[action], speed)
-        drone.take_action_3(drone_handle, reverse_action[action])
-        if action == 0:
-            time.sleep(0.7)
-            drone.hover()
-            time.sleep(1)
-        else:
-            time.sleep(0.6)
-            drone.hover()
-            time.sleep(0.4)
-        print('getting new frame ', end='')
-        temp_state, temp_frame, cam = get_state(cam)
-        temp_state, temp_frame, cam = get_state(cam)
-        temp_state, temp_frame, cam = get_state(cam)
-        # print('Done : ', end='')
-        depth_map, reward = reward_gen(L_old, C_old, R_old, temp_frame, action)
-        print('depth generated')
-        if reward == -1:
-            # can't go forward either'
-            data_tuple.append([temp_state, 0, temp_state, reward, action_type])
-
-        # Transpose of the action is crash too - out of the for loop so that the uncrash frame is captured too
-        data_tuple.append([temp_state, action, temp_state, -1, 'crash_recover'])
-
-    avoid_action = action
+#
+# def recover(data_tuple, new_state, action, reverse_action, drone, drone_handle ):
+#     reward = -1
+#     while reward == -1:
+#         action_type = 'crash_recover'
+#         # Moving forward from crash is crash too
+#         data_tuple.append([new_state, 0, new_state, reward, action_type])
+#         print('Crashed: Moving ', reverse_action(action_transpose[action]))
+#         # drone.move_action(reverse_action[action], speed)
+#         drone.take_action_3(drone_handle, reverse_action[action])
+#         if action == 0:
+#             time.sleep(0.7)
+#             drone.hover()
+#             time.sleep(1)
+#         else:
+#             time.sleep(0.6)
+#             drone.hover()
+#             time.sleep(0.4)
+#         print('getting new frame ', end='')
+#         temp_state, temp_frame, cam = get_state(cam)
+#         temp_state, temp_frame, cam = get_state(cam)
+#         temp_state, temp_frame, cam = get_state(cam)
+#         # print('Done : ', end='')
+#         depth_map, reward = reward_gen(L_old, C_old, R_old, temp_frame, action)
+#         print('depth generated')
+#         if reward == -1:
+#             # can't go forward either'
+#             data_tuple.append([temp_state, 0, temp_state, reward, action_type])
+#
+#         # Transpose of the action is crash too - out of the for loop so that the uncrash frame is captured too
+#         data_tuple.append([temp_state, action, temp_state, -1, 'crash_recover'])
+#
+#     avoid_action = action
 
 def load_data(load, load_path):
     if load:
