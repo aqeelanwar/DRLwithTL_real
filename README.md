@@ -15,28 +15,29 @@ The current version of DRLwithTL-Sim supports Windows and requires python3. Itâ€
 
 ### Clone the repository
 ```
-git clone https://github.com/aqeelanwar/DRLwithTL-Real.git
+git clone https://github.com/aqeelanwar/DRLwithTL_real.git
 ```
 ### Install required packages
 The provided requirements.txt file can be used to install all the required packages. Use the following command
 ```
-cd DRLwithTL
+cd DRLwithTL_real
 pip install â€“r requirements.txt
 ```
 This will install the required packages in the activated python environment.
 
 
-## Running DRLwithTL-Sim
+## Running DRLwithTL-Real
 Once you have the required packages, you can take the following steps to run the code
 
 ### Connect with DJI Tello
-
+1. Turn DJI Tello On
+2. Connect your workstation with DJI Tello over Wi-Fi
 
 ### Modify the configuration file (Optional)
 The RL parameters for the DRL algorithm can be set using the provided config file and are self-explanatory.
 
 ```
-cd DRLwithTL-Real\configs
+cd DRLwithTL_real\configs
 notepad config.cfg (#for windows)
 ```
 

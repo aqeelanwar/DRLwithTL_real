@@ -25,7 +25,6 @@ from dotmap import DotMap
 
 # Read the configuration file
 cfg = read_cfg(verbose=True)
-print('test')
 
 # ---------- Initialize necessary variables
 stat_path = 'DeepNet/models/'+cfg.run_name+'/'+cfg.env_type+'/stat.npy'
@@ -176,7 +175,7 @@ if __name__ == '__main__':
                                                             eps_model='exponential',
                                                             avoid_action=avoid_action)
                             # action = 1
-                            # drone.mark_frame(action, num_actions, frame)
+                            drone.mark_frame(action, num_actions, frame)
                             drone.take_action_3(drone_handle, action)
                             time.sleep(0.8)
                             drone.take_action_3(drone_handle, -1)

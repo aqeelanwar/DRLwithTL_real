@@ -289,27 +289,51 @@ class tello_drone(object):
 
         return container, drone
 
-    def mark_frame(self, action, num_actions,frame):
-        BLUE = (0, 0, 255)
-        BLACK = (0, 0, 0)
-        h = frame.height
-        w = frame.width
-        len_a = numpy.round(numpy.sqrt(num_actions))
+    # def mark_frame_grid(self, action, num_actions,frame):
+    #     BLUE = (0, 0, 255)
+    #     BLACK = (0, 0, 0)
+    #     h = frame.height
+    #     w = frame.width
+    #     len_a = numpy.round(numpy.sqrt(num_actions))
+    #
+    #     grid_w = w / len_a
+    #     grid_h = h / len_a
+    #
+    #     a_col = action % len_a
+    #     a_row = int(action / len_a)
+    #     x = a_col * grid_w
+    #     y = a_row * grid_h
+    #     width = grid_w
+    #     height = grid_h
+    #
+    #     pygame.draw.rect(self.screen, BLUE, (x, y, width, height), 3)
+    #     x = int(x + width / 2)
+    #     y = int(y + height / 2)
+    #     pygame.draw.circle(self.screen, BLACK, (x, y), 10)
+    #     pygame.display.update()
 
-        grid_w = w / len_a
-        grid_h = h / len_a
+    def mark_frame(self, action, num_actions, frame):
+        black_color = (0, 0, 0)
+        red_color = (255, 0, 0)
+        H = frame.height
+        W = frame.width
 
-        a_col = action % len_a
-        a_row = int(action / len_a)
-        x = a_col * grid_w
-        y = a_row * grid_h
-        width = grid_w
-        height = grid_h
+        pygame.draw.line(self.screen, black_color, (W / 2, H / 2 - H / 4), (W / 2, H / 2 + H / 4), 5)
+        pygame.draw.line(self.screen, black_color, (W / 2 - W / 4, H / 2), (W / 2 + W / 4, H / 2), 5)
 
-        pygame.draw.rect(self.screen, BLUE, (x, y, width, height), 3)
-        x = int(x + width / 2)
-        y = int(y + height / 2)
-        pygame.draw.circle(self.screen, BLACK, (x, y), 10)
+        y = int(H / 2)
+
+        if action == 0:
+            # Forward
+            x = int(W / 2)
+        elif action == 1:
+            # Left
+            x = int(W / 2 - H / 6)
+        else:
+            # Right
+            x = int(W / 2 + H / 6)
+
+        pygame.draw.circle(self.screen, red_color, (x, y), 25)
         pygame.display.update()
 
     def pygame_connect(self, H, W):
