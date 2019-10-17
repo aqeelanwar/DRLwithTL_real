@@ -49,11 +49,13 @@ cd DRLwithTL
 python main_code.py
 ```
 
-While the simulation is running, RL parameters such as epsilon, learning rate, average Q values and loss can be viewed on the tensorboard. The path depends on the env_type, env_name and train_type set in the config file and is given by 'models/trained/&lt;env_type>/&lt;env_name>/Imagenet/''. An example can be seen below
+While the simulation is running, RL parameters such as epsilon, learning rate, average Q values and loss can be viewed on the tensorboard. The path depends on the env_type, env_name and train_type set in the config file and is given by 'DeepNet/models/&lt;run_name>/&lt;env_type>/'. An example can be seen below
+
+
 
 ```
-cd models\trained\Indoor\indoor_long\Imagenet\
-tensorboard --logdir e2e
+cd DeepNet/models/Tello_indoor/VanLeer/
+tensorboard --logdir agent
 
 ```
 
