@@ -5,7 +5,7 @@
 import configparser as cp
 from dotmap import DotMap
 
-def read_cfg(config_filename = 'configs/main.cfg', verbose = False):
+def read_cfg(config_filename = 'configs/config.cfg', verbose = False):
     # Load from config file
     cfg = DotMap()
 

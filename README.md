@@ -4,10 +4,8 @@
 This repository uses Transfer Learning (TL) based approach to reduce on-board computation required to train a deep neural network for autonomous navigation via Deep Reinforcement Learning for a target algorithmic performance. A library of 3D realistic meta-environments is manually designed using Unreal Gaming Engine and the network is trained end-to-end. These trained meta-weights are then used as initializers to the network in a **real** test environment and fine-tuned for the last few fully connected layers. Variation in drone dynamics and environmental characteristics is carried out to show robustness of the approach.
 The repository containing the code for **simulated** environment on a **simulated** drone can be found @ [DRLwithTL-Sim](https://github.com/aqeelanwar/DRLwithTL)
 
-
+![Cover Photo](/images/tello.png)
 ![Cover Photo](/images/cover.png)
-
-![Cover Photo](/images/envs.png)
 
 
 ## Installing DRLwithTL-Sim
@@ -59,6 +57,12 @@ tensorboard --logdir agent
 
 ```
 
+### Runtime Controls
+Pygame screen can be used to control the DJI Tello drone on the fly. Following control keys are supported
+
+1. **'M'** : Top toggle between automatic and manual mode. In automatic phase, the drone uses RL training to navigate around the environment using epsilon greedy algorithm. In manual phase (default starting phase) the user has control over the drone and can use left, right, up, down, w, a, s, d keys to navigate. All the other control keys mentioned below only works when the drone is in the manual mode
+2. **'Escape'**: Quits the code
+3. **'L'** : Save the DNN weights and Replay memory to the path specified in the config file.
 
 ## Citing
 If you find this repository useful for your research please use the following bibtex citations

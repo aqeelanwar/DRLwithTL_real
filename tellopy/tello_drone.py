@@ -227,9 +227,6 @@ class tello_drone(object):
             if e.type == pygame.locals.KEYDOWN:
                 print('+' + pygame.key.name(e.key))
                 keyname = pygame.key.name(e.key)
-                if keyname == 'escape':
-                    drone.quit()
-                    exit(0)
                 if keyname == 'm':
                     manual = True
 
