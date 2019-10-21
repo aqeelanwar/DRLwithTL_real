@@ -60,7 +60,7 @@ tensorboard --logdir agent
 ### Runtime Controls
 Pygame screen can be used to control the DJI Tello drone on the fly. Following control keys are supported
 
-1. **'M'** : Top toggle between automatic and manual mode. In automatic phase, the drone uses RL training to navigate around the environment using epsilon greedy algorithm. In manual phase (default starting phase) the user has control over the drone and can use left, right, up, down, w, a, s, d keys to navigate. All the other control keys mentioned below only works when the drone is in the manual mode
+1. **'M'** : Top toggle between automatic and manual mode. In automatic phase, the drone uses RL training to navigate around the environment using epsilon greedy algorithm. In manual phase (default starting phase) the user has control over the drone and can use **left, right, up, down, w, a, s, d** keys to navigate. All the other control keys mentioned below only works when the drone is in the manual mode
 2. **'Escape'**: Quits the code
 3. **'L'** : Save the DNN weights and Replay memory to the path specified in the config file.
 
