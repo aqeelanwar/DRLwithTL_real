@@ -6,5 +6,5 @@
 *.data-00000-of-00001
 *.iml
 *checkpoint
-DeepNet\models\
+DeepNet\models\fcrn
 
