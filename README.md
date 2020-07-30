@@ -27,6 +27,12 @@ This will install the required packages in the activated python environment.
 ## Running DRLwithTL-Real
 Once you have the required packages, you can take the following steps to run the code
 
+### Download imagenet weight (Optional)
+Download the imagenet weights for the network from the [here](https://gtvault-my.sharepoint.com/:u:/g/personal/manwar8_gatech_edu/Ef52J48ugL1CnrWmrUVj0JgBOd1-PIiPU2ZUcQ5mqnP0tA?e=QD53S0) and place it in 
+```
+DeepNet/models/imagenet.npy
+```
+
 ### Connect with DJI Tello
 1. Turn DJI Tello On
 2. Connect your workstation with DJI Tello over Wi-Fi
